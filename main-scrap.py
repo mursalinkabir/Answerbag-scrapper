@@ -9,7 +9,7 @@ html = r.content
 soup= BeautifulSoup(html)
 questions= soup.find_all("a",{"class":"title"})
 
-# print(len(questions))
+print("Number of Questions are %s"%(len(questions)))
 # for item in questions:
 #     print(item.text)
 
@@ -20,5 +20,6 @@ for links in questions:
     print(fulllink)
     print(afinder(fulllink))
     print(avgresponse())
+    print(avgwordcount())
 
 

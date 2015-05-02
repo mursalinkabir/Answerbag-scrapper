@@ -1,6 +1,6 @@
 __author__ = 'Mursalin'
 import requests
-from ansfinder import afinder
+from ansfinder import *
 from bs4 import BeautifulSoup
 
 
@@ -9,16 +9,16 @@ html = r.content
 soup= BeautifulSoup(html)
 questions= soup.find_all("a",{"class":"title"})
 
-print(len(questions))
-for item in questions:
-    print(item.text)
+# print(len(questions))
+# for item in questions:
+#     print(item.text)
 
 
 for links in questions:
     halflink = links.get("href")
-    print(halflink)
     fulllink= "http://www.answerbag.com"+halflink
     print(fulllink)
     print(afinder(fulllink))
+    print(avgresponse())
 
 

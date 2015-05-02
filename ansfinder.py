@@ -19,7 +19,7 @@ def afinder(link):
         print(item.text) #printing the answer text
         tmptext= item.text
         tmpsplt= tmptext.split(" ")
-        tmpavglist.append(len(tmpsplt)) #adding the len of words of current anss
+        tmpavglist.append(len(tmpsplt)) #adding the len of words of current ansssd
     print("Printing tmpavglist %s"%(tmpavglist))
     finavg=sum(tmpavglist)/numofans #countung temp avg word count for this question
     avgword.append(finavg) #adding current avg to main avg list

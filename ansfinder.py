@@ -3,7 +3,9 @@ import requests
 from bs4 import BeautifulSoup
 list =[]
 avgword =[]
+tmplinks=[]
 def afinder(link):
+    tmpavglist = []
 
     q=requests.get(link)
     qhtml = q.content
@@ -12,12 +14,19 @@ def afinder(link):
     numofans = len(answers)
     list.append(numofans)
     print("The Number of ans are : %s"%(numofans))
-    tmpavglist = []
+
     for item in answers:
+
         ansindex=answers.index(item)+1
         print("Answer: %s"%(ansindex))
         print(item.text) #printing the answer text
         tmptext= item.text
+        tmplinkfound= tmptext.find("http")
+        if tmplinkfound!=-1:
+            print("Link is Found!!")
+            tmplinks.append(len(tmplinkfound))
+        else:
+            print("no links in object")
         tmpsplt= tmptext.split(" ")
         tmpavglist.append(len(tmpsplt)) #adding the len of words of current ansssd
     print("Printing tmpavglist %s"%(tmpavglist))
@@ -50,3 +59,6 @@ def responsefinder(res):
 
     avgansgiven= hasans/totalans
     print("Average answered question %s"%(avgansgiven))
+def priresearch():
+    researchavg= sum(tmplinks)/float(len(list))
+    print("Prior Research Average till now is %s"%(researchavg))

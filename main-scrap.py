@@ -4,7 +4,7 @@ from ansfinder import *
 from bs4 import BeautifulSoup
 
 
-r = requests.get("http://www.answerbag.com/category/credit-and-loans_5467")
+r = requests.get("http://www.answerbag.com/category/environmentalism_10163")
 html = r.content
 soup= BeautifulSoup(html)
 questions= soup.find_all("a",{"class":"title"})
@@ -26,10 +26,9 @@ for itm2 in responsefind:
                                     print(afinder(fulllink))
                                     print(avgresponse())
                                     print(avgwordcount())
+                                    print(priresearch())
 
-# print("Number of Questions are %s"%(len(questions)))
-# for item in questions:
-#     print(item.text)
+
 
 
 

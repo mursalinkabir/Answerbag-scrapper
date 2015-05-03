@@ -4,22 +4,34 @@ from ansfinder import *
 from bs4 import BeautifulSoup
 
 
-r = requests.get("http://www.answerbag.com/category/finance_33")
+r = requests.get("http://www.answerbag.com/category/credit-and-loans_5467")
 html = r.content
 soup= BeautifulSoup(html)
 questions= soup.find_all("a",{"class":"title"})
+responsefind= soup.find_all("p",{"class":"Note"})
 
-print("Number of Questions are %s"%(len(questions)))
+print(responsefinder(responsefind)) # number of answered question out of all
+
+for itm2 in responsefind:
+        maintext= itm2.text
+        noans= "no answers"
+        noansfinder=maintext.find(noans)
+        if noansfinder != -1: # if the response if no answer
+                             print()
+        else: #if the response is yes answer
+            for links in questions:
+                                    halflink = links.get("href")
+                                    fulllink= "http://www.answerbag.com"+halflink
+                                    print(fulllink)
+                                    print(afinder(fulllink))
+                                    print(avgresponse())
+                                    print(avgwordcount())
+
+# print("Number of Questions are %s"%(len(questions)))
 # for item in questions:
 #     print(item.text)
 
 
-for links in questions:
-    halflink = links.get("href")
-    fulllink= "http://www.answerbag.com"+halflink
-    print(fulllink)
-    print(afinder(fulllink))
-    print(avgresponse())
-    print(avgwordcount())
+
 
 

@@ -33,3 +33,20 @@ def avgwordcount():
     print("List of avgword count %s"%(avgword))
 
     print("average words till now is %s"%(avgwordnow))
+
+def responsefinder(res):
+    responsefind=res
+    totalans=0
+    hasans=0
+    for itm in responsefind:
+            maintext= itm.text
+            noans= "no answers"
+            totalans+=1
+            noansfinder=maintext.find(noans)
+            if noansfinder != -1: # if the response if no answer
+                                 print()
+            else: #if the response is yes answer
+                hasans+=1  #if ans found increment
+
+    avgansgiven= hasans/totalans
+    print("Average answered question %s"%(avgansgiven))

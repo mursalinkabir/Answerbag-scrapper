@@ -4,7 +4,7 @@ from ansfinder import *
 from bs4 import BeautifulSoup
 
 
-r = requests.get("http://www.answerbag.com/category/environmentalism_10163")
+r = requests.get("http://www.answerbag.com/category/credit-and-loans_5467")
 html = r.content
 soup= BeautifulSoup(html)
 questions= soup.find_all("a",{"class":"title"})

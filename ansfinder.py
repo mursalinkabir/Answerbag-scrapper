@@ -52,7 +52,7 @@ def responsefinder(res):
             noans= "no answers"
             totalans+=1
             noansfinder=maintext.find(noans)
-            if noansfinder != -1: # if the response if no answer
+            if noansfinder != -1: # if the response is no answer
                                  print()
             else: #if the response is yes answer
                 hasans+=1  #if ans found increment
